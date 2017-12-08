@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="总结," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="关于这个博客（呃…大概算是一直以来都没什么总结文字之类的保存下来，但随着需要掌握的东西越来越多，而且有些东西使用的频率并不高。单靠着翻阅以前项目代码来回忆明显效率太慢，而且十分混乱。于是就有建立个博客的想法。   本来一开始是想自己写一个完整的前后端项目，尽管这可以促进一下自己的nodejs的学习，但边写编发现这和自己的初衷离得太远。在借助 koa-markdown 写了点笔记之后，下定决心借助">
+<meta name="keywords" content="总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正好有点空，随便说说">
+<meta property="og:url" content="http://yoursite.com/2017/12/08/正好有点空，随便说说/index.html">
+<meta property="og:site_name" content="高某人的闲言碎语">
+<meta property="og:description" content="关于这个博客（呃…大概算是一直以来都没什么总结文字之类的保存下来，但随着需要掌握的东西越来越多，而且有些东西使用的频率并不高。单靠着翻阅以前项目代码来回忆明显效率太慢，而且十分混乱。于是就有建立个博客的想法。   本来一开始是想自己写一个完整的前后端项目，尽管这可以促进一下自己的nodejs的学习，但边写编发现这和自己的初衷离得太远。在借助 koa-markdown 写了点笔记之后，下定决心借助">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-08T09:20:30.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正好有点空，随便说说">
+<meta name="twitter:description" content="关于这个博客（呃…大概算是一直以来都没什么总结文字之类的保存下来，但随着需要掌握的东西越来越多，而且有些东西使用的频率并不高。单靠着翻阅以前项目代码来回忆明显效率太慢，而且十分混乱。于是就有建立个博客的想法。   本来一开始是想自己写一个完整的前后端项目，尽管这可以促进一下自己的nodejs的学习，但边写编发现这和自己的初衷离得太远。在借助 koa-markdown 写了点笔记之后，下定决心借助">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/08/正好有点空，随便说说/"/>
+
+
+
+
+
+  <title>正好有点空，随便说说 | 高某人的闲言碎语</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c969ca1ce2948b98c05d061b665bc156";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">高某人的闲言碎语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/08/正好有点空，随便说说/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GravityMsc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/F1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高某人的闲言碎语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正好有点空，随便说说</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T16:16:18+08:00">
+                2017-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">杂谈</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="关于这个博客（呃…大概算是"><a href="#关于这个博客（呃…大概算是" class="headerlink" title="关于这个博客（呃…大概算是"></a>关于这个博客（呃…大概算是</h3><p>一直以来都没什么总结文字之类的保存下来，但随着需要掌握的东西越来越多，而且有些东西使用的频率并不高。单靠着翻阅以前项目代码来回忆明显效率太慢，而且十分混乱。于是就有建立个博客的想法。  </p>
+<p>本来一开始是想自己写一个完整的前后端项目，尽管这可以促进一下自己的nodejs的学习，但边写编发现这和自己的初衷离得太远。在借助 <code>koa-markdown</code> 写了点笔记之后，下定决心借助 ‘hexo + pages.github.io’ 一步解毒，就有了这么个东西······</p>
+<h3 id="github项目"><a href="#github项目" class="headerlink" title="github项目"></a>github项目</h3><p>在时间久远的过去，靠着自己对前端的兴趣（当然也是大势所趋），自学 react 全家桶······在此之前，本着 ‘用别人的配置很不爽’ 的心态，先把 webpack 多数主流配置搞懂搞明白，写了个自用的配置文件，然后随时保证升级，添加不同的plugin。遗憾的就是自己仅仅是了解了一下，并没有去写一个自己的插件出来；紧接着用 airbnb 的代码规范检查折磨自己，也算是规范一下自己的代码。之后就是老生常谈，借助 react,redux,react-router ，以 antd 为基础组件库，完成了一个内部的小型单页应用，把各部分串联在一起。在此说一句，每一个新技术的学习，只有靠自己去踩坑才能掌握的更好。react-router v4 的学习与使用，真是累感不爱/(ㄒoㄒ)/~~  </p>
+<p>最近在完成了公司一个老旧的项目后，用着一些上古的东西更让人觉得痛不欲生，兴趣也越来越低。自己想着主动做出改变，去参与一些开源项目，跟上技术发展的趋势。于是拾起自己一直懒于经营的github，通过与 owner 的交流和 code review, 提升自己的水平。思来想去，决定先从 DOTA2 入手，于是 <a href="https://github.com/odota/web" target="_blank" rel="noopener">opendota</a> 就成了我第一个试水的项目。  </p>
+<p>当然十分感谢<a href="https://github.com/geeeeeeeeek/git-recipes/wiki" target="_blank" rel="noopener">Git中文教程</a>的指引。首先从翻译入手，熟悉整个的开源流程。因为本身 opendota 的项目完全是react全家桶，一些feature的实现并没有遇到什么困难，于是DOTA2新的奖章等级系统就成了我的功能代码层面上的第一个贡献（笑）。  </p>
+<p>在此补一句，英语在任何时候的确会成为自身提高的一定阻碍。沟通过程中看懂当然是没问题，但是对某些issue上理解的偏差还是存在的。很久不用的英语已经退化，为了在issue和pr上不出现一些可笑的语法错误，靠着谷歌翻译就是必不可少的了···要想作为一个合格的码农，最好还是去学好英语，不只是沟通，看原版教程的理解也比加过一层翻译来的更清楚。</p>
+<h3 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h3><p>大概，先是要把react全家桶的一些使用tips汇总一下，譬如redux，react-router等。在写的过程中去调研正确与否，更能加深对技术的掌握程度。之后也会补上 ‘hexo + pages.github.io’ 的简单使用教程。<br>其二，开源项目保持贡献吧，多学习源码，了解整个项目的构成。代码永远是最好的老师。<br>其三，正如这个博客标题，’闲言碎语’。去谈谈一些其他事情的看法与分析，类似知乎回答那种······  </p>
+<p>呃，也快要下班了，大周五的和同事一起去吃火锅了······回见！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/总结/" rel="tag"># 总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/05/webpack学习笔记/" rel="next" title="webpack学习笔记">
+                <i class="fa fa-chevron-left"></i> webpack学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/F1.jpg"
+                alt="GravityMsc" />
+            
+              <p class="site-author-name" itemprop="name">GravityMsc</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GravityMsc" target="_blank" title="github">
+                    
+                      <i class="fa fa-fw fa-github"></i>github</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/mscgravity" target="_blank" title="weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/GravityMsc/activities" target="_blank" title="zhihu">
+                    
+                      <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/GravityMsc" target="_blank" title="twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>twitter</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于这个博客（呃…大概算是"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x535A;&#x5BA2;&#xFF08;&#x5443;&#x2026;&#x5927;&#x6982;&#x7B97;&#x662F;" class="headerlink" title="&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x535A;&#x5BA2;&#xFF08;&#x5443;&#x2026;&#x5927;&#x6982;&#x7B97;&#x662F;"></a>&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x535A;&#x5BA2;&#xFF08;&#x5443;&#x2026;&#x5927;&#x6982;&#x7B97;&#x662F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github项目"><span class="nav-number">2.</span> <span class="nav-text"><a href="#github&#x9879;&#x76EE;" class="headerlink" title="github&#x9879;&#x76EE;"></a>github&#x9879;&#x76EE;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续计划"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x540E;&#x7EED;&#x8BA1;&#x5212;" class="headerlink" title="&#x540E;&#x7EED;&#x8BA1;&#x5212;"></a>&#x540E;&#x7EED;&#x8BA1;&#x5212;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GravityMsc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
